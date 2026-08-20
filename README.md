@@ -4,8 +4,6 @@ Personal portfolio for Shemaiah Paramesvaran, a Computer Science undergraduate a
 
 The portfolio explores curiosity, innovation, and execution through practical work across software, hardware, sustainability, and industrial safety.
 
-![Portfolio Preview](public/assets/projects-screenshots/portfolio/landing.png)
-
 ## Features
 
 - **Interactive 3D Keyboard** — Custom Spline keyboard where each keycap represents a skill, revealing titles and descriptions on hover/press
