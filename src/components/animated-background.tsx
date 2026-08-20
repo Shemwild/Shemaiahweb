@@ -12,6 +12,7 @@ import { useTheme } from "next-themes";
 import { Section, getKeyboardState } from "./animated-background-config";
 import { useSounds } from "./realtime/hooks/use-sounds";
 import { usePerfProfile } from "@/hooks/use-perf-profile";
+import { sitePath } from "@/lib/site-path";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -488,7 +489,7 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
           setSplineApp(app);
           bypassLoading();
         }}
-        scene="/assets/skills-keyboard.spline"
+        scene={sitePath("/assets/skills-keyboard.spline")}
       />
     </Suspense>
   );

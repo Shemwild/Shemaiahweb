@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  cacheComponents: true,
+  output: "export",
+  basePath: process.env.GITHUB_ACTIONS ? "/Shemaiahweb" : "",
+  trailingSlash: true,
+  images: { unoptimized: true },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: process.env.GITHUB_ACTIONS ? "/Shemaiahweb" : "",
+  },
+  basePath: process.env.GITHUB_ACTIONS ? "/Shemaiahweb" : "",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
   eslint: {
     ignoreDuringBuilds: true
   },

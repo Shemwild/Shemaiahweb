@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import { sitePath } from "@/lib/site-path";
 import {
   AnimatePresence,
   motion,
@@ -92,7 +93,7 @@ const AnimatedDiv = ({
       onClick={handlePause}
     >
       <img
-        src="/assets/nyan-cat.gif"
+        src={sitePath("/assets/nyan-cat.gif")}
         className={cn("fixed z-10 h-40 w-auto")}
         alt="Nyan Cat"
       />

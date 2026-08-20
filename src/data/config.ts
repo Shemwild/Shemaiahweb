@@ -20,7 +20,9 @@ const config = {
   author: "Shemaiah Paramesvaran",
   email: "nambikkai6@gmail.com",
   phone: "9363055121",
-  site: "https://shemwild.github.io",
+  site: process.env.GITHUB_ACTIONS
+    ? "https://shemwild.github.io/Shemaiahweb"
+    : "https://shemwild.github.io",
 
   // for github stars button
   githubUsername: "Shemwild",

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { sitePath } from '@/lib/site-path';
 
 export const useSounds = () => {
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -14,17 +15,17 @@ export const useSounds = () => {
         const ctx = new AudioContext();
         audioContextRef.current = ctx;
 
-        const response = await fetch('/assets/keycap-sounds/press.mp3');
+        const response = await fetch(sitePath('/assets/keycap-sounds/press.mp3'));
         const arrayBuffer = await response.arrayBuffer();
         const decodedBuffer = await ctx.decodeAudioData(arrayBuffer);
         pressBufferRef.current = decodedBuffer;
 
-        const releaseResponse = await fetch('/assets/keycap-sounds/release.mp3');
+        const releaseResponse = await fetch(sitePath('/assets/keycap-sounds/release.mp3'));
         const releaseArrayBuffer = await releaseResponse.arrayBuffer();
         const releaseDecodedBuffer = await ctx.decodeAudioData(releaseArrayBuffer);
         releaseBufferRef.current = releaseDecodedBuffer;
 
-        const confettiResponse = await fetch('/assets/sounds/vine-boom.mp3');
+        const confettiResponse = await fetch(sitePath('/assets/sounds/vine-boom.mp3'));
         const confettiArrayBuffer = await confettiResponse.arrayBuffer();
         confettiBufferRef.current = await ctx.decodeAudioData(confettiArrayBuffer);
       } catch (error) {

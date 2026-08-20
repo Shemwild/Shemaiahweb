@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { TypographyH3, TypographyP } from "@/components/ui/typography";
+import { sitePath } from "@/lib/site-path";
 
 export type Skill = {
   title: string;
@@ -32,7 +33,7 @@ const projects: Project[] = [
     id: "ongc-vannaquery-platform",
     category: "AI / Generative AI / Full Stack",
     title: "AI-Powered Multi-Database Query Platform (ONGC)",
-    src: "/assets/projects-generated/ongc-vannaquery-platform.svg",
+    src: sitePath("/assets/projects-generated/ongc-vannaquery-platform.svg"),
     screenshots: ["ongc-vannaquery-platform.svg"],
     skills: {
       frontend: [textSkill("React"), textSkill("FastAPI"), textSkill("Python")],
@@ -51,7 +52,7 @@ const projects: Project[] = [
     id: "eco-tracker",
     category: "AI / Sustainability / Cloud",
     title: "EcoTracker",
-    src: "/assets/projects-generated/eco-tracker.svg",
+    src: sitePath("/assets/projects-generated/eco-tracker.svg"),
     screenshots: ["eco-tracker.svg"],
     skills: {
       frontend: [textSkill("AI"), textSkill("Cloud")],
@@ -68,7 +69,7 @@ const projects: Project[] = [
     id: "smart-oil-leakage-detection",
     category: "IoT / Embedded Systems / Cloud",
     title: "Smart Oil Leakage Detection System",
-    src: "/assets/projects-generated/crude-oil-leakage-detection.svg",
+    src: sitePath("/assets/projects-generated/crude-oil-leakage-detection.svg"),
     screenshots: ["crude-oil-leakage-detection.svg"],
     skills: {
       frontend: [textSkill("Arduino"), textSkill("ESP32")],
@@ -85,7 +86,7 @@ const projects: Project[] = [
     id: "loser-high-tech-helmet",
     category: "Smart Hardware / IoT / Embedded",
     title: "LÖSER High-Tech Helmet",
-    src: "/assets/projects-generated/loser-high-tech-helmet.svg",
+    src: sitePath("/assets/projects-generated/loser-high-tech-helmet.svg"),
     screenshots: ["loser-high-tech-helmet.svg"],
     skills: {
       frontend: [textSkill("TWS Integration"), textSkill("Calls & Music")],
@@ -104,7 +105,7 @@ const projects: Project[] = [
     id: "coastmate",
     category: "AI & IoT / Coastal Resilience / MSME Network",
     title: "CoastMate",
-    src: "/assets/projects-generated/coastmate.svg",
+    src: sitePath("/assets/projects-generated/coastmate.svg"),
     screenshots: ["coastmate.svg"],
     skills: {
       frontend: [textSkill("AI & IoT"), textSkill("Coastal MSMEs")],
@@ -123,7 +124,7 @@ const projects: Project[] = [
     id: "conditional-gan-house-layout",
     category: "Generative AI / Deep Learning / PyTorch",
     title: "Conditional GAN Automated House Layout Generator",
-    src: "/assets/projects-generated/conditional-gan-house-layout.svg",
+    src: sitePath("/assets/projects-generated/conditional-gan-house-layout.svg"),
     screenshots: ["conditional-gan-house-layout.svg"],
     skills: {
       frontend: [textSkill("Generative AI"), textSkill("PyTorch")],

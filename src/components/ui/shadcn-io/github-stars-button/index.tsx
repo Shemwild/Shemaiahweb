@@ -11,7 +11,6 @@ import {
 } from 'motion/react';
 
 import { cn } from '@/lib/utils';
-import { getGithubStars } from '@/actions/github-stars';
 import { SlidingNumber } from '../sliding-number';
 import { Fragment, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
@@ -67,11 +66,16 @@ function GitHubStarsButton({
   );
 
   useEffect(() => {
-    getGithubStars()
-      .then((count) => setStars(count))
+    fetch(`https://api.github.com/repos/${username}/${repo}`, {
+      headers: { Accept: 'application/vnd.github+json' },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (typeof data.stargazers_count === 'number') setStars(data.stargazers_count);
+      })
       .catch(console.error)
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [repo, username]);
 
   const handleDisplayParticles = useCallback(() => {
     setDisplayParticles(true);

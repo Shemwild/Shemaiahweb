@@ -1,6 +1,7 @@
 import Spline from "@splinetool/react-spline";
 import type { Metadata } from "next";
 import React, { Suspense } from "react";
+import { sitePath } from "@/lib/site-path";
 
 export const metadata: Metadata = {
   title: "404 - Page Not Found",
@@ -11,7 +12,7 @@ const NotFoundPage = () => {
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
-        <Spline scene="/assets/404.spline" style={{ height: "100vh" }} />
+        <Spline scene={sitePath("/assets/404.spline")} style={{ height: "100vh" }} />
       </Suspense>
     </>
   );
