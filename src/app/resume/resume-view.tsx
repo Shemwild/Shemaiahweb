@@ -1,22 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { Download, ArrowLeft, Printer, Mail, Phone, Briefcase, GraduationCap, Code, FolderGit2, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, Mail, Phone, Briefcase, GraduationCap, Code, FolderGit2, User } from "lucide-react";
 import { config } from "@/data/config";
 import { EXPERIENCE } from "@/data/constants";
-import ResumeDoodle from "./resume-doodle";
-
-const RESUME_PATH = "/Shemaiah_Paramesvaran_Resume.pdf";
 
 export default function ResumeView() {
-  const [viewMode, setViewMode] = useState<"digital" | "pdf">("digital");
-
-  const handlePrint = () => {
-    window.print();
-  };
 
   return (
     <div className="flex min-h-screen flex-col font-sans bg-background text-foreground print:bg-white print:text-black">
@@ -49,59 +40,20 @@ export default function ResumeView() {
             Back to portfolio
           </Link>
 
-          <div className="flex items-center gap-2">
-            {/* View switcher */}
-            <div className="flex rounded-lg bg-secondary/50 p-1 border border-border/50">
-              <button
-                type="button"
-                onClick={() => setViewMode("digital")}
-                className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
-                  viewMode === "digital"
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                Digital Résumé
-              </button>
-              <button
-                type="button"
-                onClick={() => setViewMode("pdf")}
-                className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
-                  viewMode === "pdf"
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                PDF Preview
-              </button>
-            </div>
-
-            <Button variant="outline" size="sm" onClick={handlePrint} className="flex gap-2 text-xs">
-              <Printer className="h-3.5 w-3.5" />
-              Print / Save PDF
-            </Button>
-
-            <Button size="sm" asChild>
-              <a href={RESUME_PATH} download className="flex gap-2 text-xs">
-                <Download className="h-3.5 w-3.5" />
-                Download PDF
-              </a>
-            </Button>
-          </div>
+          <div className="flex items-center gap-2" />
         </motion.div>
       </div>
 
       {/* Main Content */}
       <div className="mx-auto flex w-full max-w-4xl flex-1 justify-center px-4 pb-16">
-        {viewMode === "digital" ? (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="resume-card w-full rounded-2xl border border-border/60 bg-card p-6 md:p-10 shadow-xl"
-          >
-            {/* Header */}
-            <div className="border-b border-border/60 pb-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="resume-card w-full rounded-2xl border border-border/60 bg-card p-6 md:p-10 shadow-xl"
+        >
+          {/* Header */}
+          <div className="border-b border-border/60 pb-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
               <div>
                 <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground uppercase">
                   Shemaiah Paramesvaran
@@ -272,20 +224,7 @@ export default function ResumeView() {
                 ))}
               </div>
             </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="aspect-[210/297] w-full overflow-hidden rounded-2xl bg-white shadow-xl"
-          >
-            <ResumeDoodle
-              src={`${RESUME_PATH}#toolbar=0&navpanes=0&view=FitH`}
-              title="Shemaiah Paramesvaran — Résumé"
-            />
-          </motion.div>
-        )}
+        </motion.div>
       </div>
     </div>
   );
